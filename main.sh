@@ -3,9 +3,14 @@
 DEBIAN_FRONTEND=noninteractive
 
 # Clone Upstream
-mkdir -p ./src-pkg-name
-cp -rvf ./debian ./src-pkg-name/
-cd ./src-pkg-name/
+git clone https://github.com/refi64/stylepak
+cp -rvf ./debian ./stylepak/
+cd ./stylepak/
+
+#
+mkdir -p ./usr/bin
+cp -rvf ./stylepak ./usr/bin
+chmod 755 ./usr/bin/stylepak
 
 # Get build deps
 apt-get build-dep ./ -y
